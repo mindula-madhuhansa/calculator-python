@@ -3,12 +3,17 @@ import operations
 print("*** Simple Calculator ***")
 isCalculating = True
 
+print("Enter calculator type:")
+print("\tStandard Calculator: 1")
+print("\tScientific Calculator: 2")
+print()
+
 while isCalculating:
     number1 = int(input("Enter number 1: "))
     number2 = int(input("Enter number 2: "))
 
     operator = input("Enter the operator: ")
-    if operator == "~" or number1 == "~" or number2 == "~":
+    if operator == "~":
         print("The calculating process stopped")
         isCalculating = False
     else:

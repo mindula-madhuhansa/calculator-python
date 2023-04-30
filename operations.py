@@ -5,7 +5,7 @@ def addition(number1, number2):
 
 # subtracting
 def subtraction(number1, number2):
-    return number1 - number2;
+    return number1 - number2
 
 
 # multiplying
@@ -35,7 +35,7 @@ def calculation(number1, number2, operator):
     elif operator == "-":
         return subtraction(number1, number2)
     elif operator == "*":
-        multiplication(number1, number2)
+        return multiplication(number1, number2)
     elif operator == "/":
         return division(number1, number2)
     elif operator == "%":
