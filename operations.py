@@ -1,3 +1,6 @@
+from math import pi
+
+
 # adding
 def addition(number1, number2):
     return number1 + number2
@@ -26,6 +29,29 @@ def modulus(number1, number2):
 # power
 def power(number1, number2):
     return number1 ** number2
+
+
+#######################################################
+
+
+# perimeter
+def perimeter(width, height):
+    return (width + height) * 2
+
+
+# area (rectangle)
+def area_rect(width, height):
+    return width * height
+
+
+# circumference
+def circumference(radius):
+    return 2 * pi * radius
+
+
+# area (circle)
+def area_circle(radius):
+    return pi * radius ** 2
 
 
 # calculation
