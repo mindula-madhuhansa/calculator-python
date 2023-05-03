@@ -1,9 +1,10 @@
 import calculatorpackage.standardcalculator as standard
 import calculatorpackage.shapecalculator as shape
+import calculatorpackage.convertercalculator as converter
 import os
 
 
-# clear console
+# clear console method
 def clear_console():
     # Windows
     if os.name == 'nt':
@@ -13,11 +14,13 @@ def clear_console():
         _ = os.system('clear')
 
 
+clear_console()
 print("*** Simple Calculator ***")
 print()
 isCalculating = True
 isChoosing = True
 
+# main menu - select calculator/converter type
 while isChoosing:
     print("Calculator")
     print("\tStandard:\t\t 01")
@@ -33,6 +36,9 @@ while isChoosing:
     calc_option = input("Select Calculator/Converter: ")
     print()
 
+    # check which type of calculator/converter selected
+
+    # arithmetic calculator
     if calc_option == "1" or calc_option == "01":
         clear_console()
         while isCalculating:
@@ -54,12 +60,13 @@ while isChoosing:
         clear_console()
         isCalculating = True
 
+    # boundary calculator
     elif calc_option == "2" or calc_option == "02":
         clear_console()
         while isCalculating:
             print("Select an option:")
-            print("\tFind perimeter of Rectangle: 1")
-            print("\tFind circumference of Circle: 2")
+            print("\tFind perimeter of Rectangle:\t 01")
+            print("\tFind circumference of Circle:\t 02")
             print()
 
             choice = input("Enter the Choice: ")
@@ -70,11 +77,11 @@ while isChoosing:
                 print("Going back...")
                 print()
                 isCalculating = False
-            elif choice == "1":
+            elif choice == "1" or choice == "01":
                 answer = shape.perimeter()
                 print("Perimeter of the Rectangle =", answer)
                 print()
-            elif choice == "2":
+            elif choice == "2" or choice == "02":
                 answer = shape.circumference()
                 print("Circumference of the Circle =", answer)
                 print()
@@ -82,6 +89,7 @@ while isChoosing:
         clear_console()
         isCalculating = True
 
+    # area calculator
     elif calc_option == "3" or calc_option == "03":
         clear_console()
         while isCalculating:
@@ -150,6 +158,7 @@ while isChoosing:
         clear_console()
         isCalculating = True
 
+    # volume calculator
     elif calc_option == "4" or calc_option == "04":
         clear_console()
         while isCalculating:
@@ -193,26 +202,26 @@ while isChoosing:
         clear_console()
         isCalculating = True
 
+    # programmer calculator
     elif calc_option == "5" or calc_option == "05":
         clear_console()
         pass
 
+    # length converter
     elif calc_option == "6" or calc_option == "06":
         clear_console()
+        print("Millimeters(mm):\t 01")
+        print("Centimeters(cm):\t 02")
+        print("Decimeter(dm):\t\t 03")
+        print("Meters(m):\t\t 04")
+        print("Kilometers(km):\t\t 05")
+        print("Inches(in):\t\t 06")
+        print("Feets(ft):\t\t 07")
+        print("Yards(yd):\t\t 08")
+        print("Miles(mi):\t\t 09")
+        print("Nautical Miles(NM):\t 10")
         while isCalculating:
-            print("Select the converter unit:")
-            print("Picometers(pm):\t\t 01")
-            print("Nanometers(nm):\t\t 02")
-            print("Micrometers(µm):\t 03")
-            print("Millimeters(mm):\t 04")
-            print("Centimeters(cm):\t 05")
-            print("Meters(m):\t\t 06")
-            print("Kilometers(km):\t\t 07")
-            print("Inches(in):\t\t 08")
-            print("Feets(ft):\t\t 09")
-            print("Yards(yd):\t\t 10")
-            print("Miles(mi):\t\t 11")
-            print("Nautical Miles(NM):\t 12")
+            units = ["mm", "cm", "dm", "m", "km", "in", "ft", "yd", "mi", "NM"]
             print()
 
             converter_unit = input("Enter Converter unit: ")
@@ -228,7 +237,14 @@ while isChoosing:
                     print("Going back...")
                     print()
                     isCalculating = False
+                else:
+                    converter_value = int(input("Enter Converter value: "))
+                    answer = converter.length_converter(converter_unit, converted_unit, converter_value)
+                    print()
+                    print(converter_value, units[int(converter_unit) - 1], "=", answer, units[int(converted_unit) - 1])
+                    print()
 
+        clear_console()
         isCalculating = True
 
     elif calc_option == "~":
